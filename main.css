@@ -1,0 +1,42 @@
+.field {
+  display: grid;
+  grid-template-columns: repeat(var(--size-n), 1fr);
+  grid-template-rows: repeat(var(--size-m), 1fr);
+  width: 90vw;
+  height: 90vh;
+}
+
+.box {
+  position: relative;
+  background-color: white;
+  cursor: pointer;
+}
+
+.box::before {
+  content: "";
+  position: absolute;
+  top: 33%;
+  left: 33%;
+  width: 33%;
+  height: 33%;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.2s ease;
+}
+
+.box::after {
+  content: "";
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+  background-color: transparent;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.box[style*="--color"]::after {
+  background-color: var(--color);
+}
